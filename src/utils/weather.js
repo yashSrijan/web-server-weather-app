@@ -7,7 +7,8 @@ module.exports = (lat, lng, callback) => {
     }, (error, response, body) => {
         if( !error && response.statusCode === 200) {
             callback(undefined, {
-                summary : body.daily.summary
+                summary : body.daily.summary + "The highest temperature is " + body.daily.data[0].temperatureHigh + 
+                " and the lowest temperature is " + body.daily.data[0].temperatureLow + "."
             });
         } else {
             callback('Unable to fetch weather.');
