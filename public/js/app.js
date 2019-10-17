@@ -34,7 +34,10 @@ weatherForm.addEventListener('submit', (event) => {
     messageOne.textContent = 'Loading..'
     messageTwo.textContent = ''
 
-    fetch(`http://localhost:3000/weather?address=${address}`)
+    //fetch(`http://localhost:3000/weather?address=${address}`) before
+    //fetch(`/weather?address=${address}`) after
+    
+    fetch(`/weather?address=${address}`)
     .then( res => {
         res.json().then( data => {
             //console.log(data) //data would be {error: "Unable to find location. Try another search."} if an error has occurred

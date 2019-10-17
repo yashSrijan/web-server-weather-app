@@ -3,6 +3,7 @@ const express = require('express'); //express is actually a function here
 const hbs = require('hbs');
 
 const app = express(); //doesnt take any arguments
+const port = process.env.PORT || 3000 //process.env.PORT will work with heroku
 
 const geocodeAddress = require('./utils/geocode');
 const getWeather = require('./utils/weather');
@@ -108,7 +109,7 @@ app.get('*', (req, res) => {
 
 
 //////////////////////////////////////////////////////////////////////
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
 //make the server run on port 3000
